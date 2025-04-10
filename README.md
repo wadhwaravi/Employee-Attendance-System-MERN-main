@@ -139,7 +139,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/MenathNDGD/Employee-Attendance-System-MERN.git
+git clone https://github.com/wadhwaravi/Employee-Attendance-System-MERN-main
 cd Employee-Attendance-System-MERN
 ```
 
