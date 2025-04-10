@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import { FaLock } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,10 +14,10 @@ function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
+      const { data } = await axios.post(`${apiUrl}/api/auth/login`, {
+        email,
+        password,
+      });
       localStorage.setItem("token", data.token);
       navigate("/");
     } catch (error) {

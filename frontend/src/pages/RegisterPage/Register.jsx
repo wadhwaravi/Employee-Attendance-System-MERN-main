@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import "./Register.css";
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ const Register = () => {
     event.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post(`${apiUrl}/api/auth/register`, {
         name,
         email,
         password,

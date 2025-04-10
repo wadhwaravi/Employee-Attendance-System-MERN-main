@@ -4,6 +4,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import moment from "moment";
 import "./Overview.css";
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 function Overview() {
   const [summary, setSummary] = useState({});
@@ -24,7 +25,7 @@ function Overview() {
     const fetchAttendanceSummary = (userId) => {
       setLoading(true);
       axios
-        .get(`http://localhost:5000/api/attendance/summary/${userId}`, {
+        .get(`${apiUrl}/api/attendance/summary/${userId}`, {
           params: { year: selectedYear, month: selectedMonth },
         })
         .then(({ data }) => {
@@ -45,7 +46,7 @@ function Overview() {
       );
 
       axios
-        .get(`http://localhost:5000/api/attendance/details/${userId}`, {
+        .get(`${apiUrl}/api/attendance/details/${userId}`, {
           params: { year: selectedYear, month: selectedMonth },
         })
         .then(({ data }) => {
